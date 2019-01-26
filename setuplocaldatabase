@@ -1,0 +1,31 @@
+#This will help you set up a simple database
+#I am importing SQLite
+
+import sqlite3
+
+#I’m establishing a connection(conn) and calling the database “learning.db”
+
+conn = sqlite3.connect('learning.db')
+
+#C is the cursor. Like a mouse cursor that you can tell how to move in your database
+
+c = conn.cursor()
+
+
+#I am now creating a table and defining the dataset type for each of the coloumns.
+#I am giving C the instructions to execute this
+
+def create_table():
+    c.execute('''CREATE TABLE new 
+    (Coloumnone VARCHAR, Coloumntwo REAL, Coloumnthree TEXT)''');
+    
+create_table()
+
+# I am manually entering data into the database and commiting it into the system
+
+def enter_data():
+    c.execute("INSERT INTO new VALUES ('Info1', 1, 'Info4')")
+    c.execute("INSERT INTO new VALUES ('Info2', 2, 'Info5')")
+    c.execute("INSERT INTO new VALUES ('Info3', 3, 'Info6')")
+    
+    conn.commit()
